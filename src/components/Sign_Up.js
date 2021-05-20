@@ -1,10 +1,86 @@
-import React from 'react';
+import React,{useState} from 'react';
+import RandomColor from './RandomColor';
 export default function Sign_In(){
+	const [count, setCount] = useState(true);
+   const [count1, setCount1] = useState(true);
+   const [fcount, setFCount] = useState(true);
+   const [lcount, setLCount] = useState(true);
+   const error ={
+	   f:"enter a valid first name",
+	   l:"enter a valid last name",
+	   
+      email : "Enter a valid email",
+      password : "Enter a valid Password"
+   }
+   const onBlur=(e)=>{
+      const {type,value}=e.target;
+      console.log("{Blur}")
+      switch(type)
+      {
+         case "email":{
+            if(String(value).length==0)
+            {
+               return setCount(false);
+            }
+         
+         }
+         case "password" :{
+            if(String(value).length==0)
+            {
+               return setCount(false);
+            }
+         
+         } 
+      }
+   }
+   const onChange=(e)=>{
+      const {type,value,name}=e.target;
+      console.log(e.target)
+	  switch(name)
+	  {
+		  case "fname": {
+			if(String(value).length<3)
+            {
+               return setFCount(true);
+            } return setFCount(false);
+		  }
+		  case "lname":{
+			if(String(value).length<3)
+            {
+               return setLCount(true);
+            } return setLCount(false);
+		  }
+	  }
+      switch(type)
+      {
+         case "email":{
+            if(String(value).length==0)
+            {
+               return setCount(false);
+            }
+            if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(value))
+            {
+              return setCount(false);
+            }
+            else setCount(true);
+         }
+         case "password" :{
+            if(String(value).length==0)
+            {
+               return setCount(false);
+            }
+            if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/.test(value))
+            {
+               return setCount1(false);
+            }   else setCount1(true);
+         } 
+      }
+      
+   }
     return (
         
         <>
-           <style>{'body{background:linear-gradient(to right, #00c3ff, #ffff1c);'}</style>
-   
+         <style>{'body{background:'+RandomColor()+'}'}</style>
            <div class="container" style={{"margin-bottom":"21px"}}>
 <br/>  <h2 style={{"text-align":"center"}}>JOIN US NOW</h2>
 <hr/>
@@ -22,16 +98,19 @@ export default function Sign_In(){
 	<div class="form-row">
 		<div class="col form-group">
 			<label>First name </label>   
-		  	<input type="text" class="form-control" placeholder=""/>
+		  	<input type="text" onChange={onChange} name="fname" class="form-control" placeholder=""/>
+			  <p>{fcount&&error.f}</p>
 		</div> 
 		<div class="col form-group">
 			<label>Last name</label>
-		  	<input type="text" class="form-control" placeholder=" "/>
+		  	<input type="text" onChange={onChange} name="lname" class="form-control" placeholder=" "/>
+			  <p>{lcount&&error.l}</p>
 		</div> 
 	</div> 
 	<div class="form-group">
 		<label>Email address</label>
-		<input type="email" class="form-control" placeholder=""/>
+		<input type="email" onChange={onChange} class="form-control" placeholder=""/>
+		<p>{count&&error.email}</p>
 		<small class="form-text text-muted">We'll never share your email with anyone else.</small>
 	</div> 
 	<div class="form-group">
@@ -63,7 +142,8 @@ export default function Sign_In(){
 	</div> 
 	<div class="form-group">
 		<label>Create password</label>
-	    <input class="form-control" type="password"/>
+	    <input class="form-control" onChange={onChange} type="password"/>
+		<p>{count1&&error.password}</p>
 	</div>   
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> Register  </button>

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import * as B from 'react-bootstrap'
 import { Button } from '@material-ui/core';
 import * as laptop from './images/laptop.png'

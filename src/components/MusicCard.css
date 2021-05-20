@@ -15,7 +15,7 @@ body {
 }
 .weather-card .top {
   position: relative;
-  height: 570px;
+  height: 400px;
   width: 100%;
   overflow: hidden;
   /* background: url("http://wb.saccount.workers.dev/0:/photo_2021-05-10_06-37-40.jpg") no-repeat;
@@ -37,11 +37,11 @@ body {
   font-size: 20px;
 }
 .weather-card .top .wrapper .mynav .lnr-chevron-left {
-  display: inline-block;
+  
   float: left;
 }
 .weather-card .top .wrapper .mynav .lnr-cog {
-  display: inline-block;
+  
   float: right;
 }
 .weather-card .top .wrapper .heading {
@@ -124,7 +124,7 @@ body {
   display: inline-block;
 }
 .weather-card .bottom .wrapper .forecast li .condition {
-  display: inline-block;
+ 
   vertical-align: middle;
   float: right;
   font-size: 25px;

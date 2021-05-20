@@ -1,8 +1,11 @@
 import React from 'react';
+import RandomColor from './RandomColor';
 import * as l from './laptop.png';
 function Footer() {
   return (<>
-    <div className='footer-container' style={{"margin-top":"-20px","padding":"30px","background":"linear-gradient(to right, #b3ffab, #12fff7)"}}>
+ 
+    <div className='footer-container' style={{"margin-top":"-20px","padding":"30px"}}>
+    <style>{'body{background:'+RandomColor()+'}'}</style>
       <div className="row" style={{"margin":"2%","padding":"2%"}}>
       
       <div className="col-lg-3 col-md-12 mb-4 mb-md-0">
@@ -47,7 +50,7 @@ function Footer() {
             <a href="#!" className="text-dark">Supported Devices</a>
           </li>
           <li>
-            <a href="#!" className="text-dark">Get Support</a>
+            <a href="/contact-us" className="text-dark">Get Support</a>
           </li>
         </ul>
       </div>
@@ -69,7 +72,7 @@ function Footer() {
             <a href="/sign-in" className="text-dark">MANAGE ACCOUNT</a>
           </li>
           <li>
-            <a href="#!" className="text-dark">REDEEM GIFTCARD</a>
+            <a href="/buy-a-gift-card" className="text-dark">REDEEM GIFTCARD</a>
           </li>
         </ul>
       </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from './Button'
 import './control-panel.css'
 
 function ControlPanel({ play, isPlaying, duration, currentTime,changeSrc }) {

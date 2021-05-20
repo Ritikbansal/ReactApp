@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import * as B from 'react-bootstrap'
 export default function Cookies() {
     const [show, setShow] = useState(true);

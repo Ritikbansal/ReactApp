@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import MusicCard from './MusicCard';
+import RandomColor from './RandomColor';
 export default function Search({obj}){
     let rows =[]
     let val='';
@@ -16,7 +17,7 @@ export default function Search({obj}){
      });
     return ( 
         <>
-        <style>{'body{background:linear-gradient(0deg, rgba(253,187,45,1) 3%, rgba(253,187,45,1) 9%, rgba(83,192,161,1) 76%, rgba(34,193,195,1) 83%, rgba(34,193,195,1) 92%);}'}</style>
+        <style>{'body{background:'+RandomColor()+'}'}</style>
      <div class="justify-content-center align-items-center align-content-center">
           <div> <input class="form-control" style={{"margin":"3% auto auto 25%","width":"50%"}} onChange={handleSubmit} type="search" placeholder="Search" aria-label="Search"/>
           </div></div>

@@ -1,10 +1,12 @@
 import { useState, useRef } from 'react'
 //import song from './Suncrown - Legend of the Forgotten Centuries.mp3'
 import Slider from './Slider'
+import RgbColor from './RgbColor'
 import './music/music2.mp3'
 import './MusicCard.css'
 import ControlPanel from './ControlPanel'
 function MusicCard({srcs,artist,photos}) {
+  const col=RgbColor();
     const [percentage, setPercentage] = useState(0)
     const [isPlaying, setIsPlaying] = useState(false)
     const [duration, setDuration] = useState(0)
@@ -78,7 +80,7 @@ function MusicCard({srcs,artist,photos}) {
       }
     return(<>
     
-    
+    <style>{'.weather-card,.one{box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);}.weather-card:hover,.one:hover {box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);}'}</style>
 		<div class="col-sm-12 col-lg-6 col-xl-4">
 			<div class="weather-card one">
 				<div class="top" style={{backgroundImage :`url(${photos})`}}>
@@ -88,13 +90,13 @@ function MusicCard({srcs,artist,photos}) {
 							<a href="javascript:;"><span class="lnr lnr-cog"></span></a>
 						</div>
 						<h1 class="heading">{artist}</h1>
-						<h3 class="location">Dhaka, Bangladesh</h3>
+						<h3 class="location"></h3>
                         <Slider percentage={percentage} onChange={onChange} /> 
                         <div class="flex-con1">
                     
 					
-                <div className='flex-itm float-left'>{secondsToHms(currentTime)}</div>
-      <div className='flex-itm float-right'>{secondsToHms(duration)}</div>
+                <div className='flex-itm float-left'><b><p style={{color:col}}>{secondsToHms(currentTime)}</p></b></div>
+      <div className='flex-itm float-right'><b><p style={{color:col}}>{secondsToHms(duration)}</p></b></div>
                 
 				</div>
 					</div>
